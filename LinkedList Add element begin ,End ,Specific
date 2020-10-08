@@ -1,0 +1,71 @@
+package linkedlistDemo;
+
+public class Linkedlisted2 {
+	Node3 head;
+ static class	Node3
+ {
+	int d;
+	Node3 next;
+	public Node3(int d) {
+		super();
+		this.d = d;
+		this.next = null;
+	}
+	
+ }
+ public static void printlist(Node3 head)
+ {
+	Node3 currentNode =head;
+	while(currentNode != null)
+	{
+		System.out.print(currentNode.d+"->");
+		currentNode=	currentNode.next;
+	}
+ }
+ public  void push(int d)
+ {
+	 Node3 newnode =new Node3(d);
+	 newnode.next=head;
+	 head=newnode;
+ }
+ public void append(int d)
+ {
+	 Node3 newnode =new Node3(d);
+	 if(head == null)
+	 {
+		 head =new Node3(d);
+		 return ;
+	 }
+	 newnode.next=null;
+	 Node3 last =head;
+	 while(last.next != null)
+	 {
+		 last=last.next;
+		 last.next=newnode;
+		 return;
+	 }
+ }
+ public void insertAfter(Node3 Prenode ,int d)
+ {
+	 
+	 Node3 newnode =new Node3(d);
+	 newnode.next=Prenode.next;
+	 Prenode.next=newnode;
+ }
+ public static void main(String[] args)
+ {
+	 Linkedlisted2 node =new Linkedlisted2();
+	 node.head= new Node3(10);
+	 node.head.next =  new Node3(20);
+	 node.head.next.next =  new Node3(30);
+	 node.head.next.next.next =  new Node3(40);
+	
+	 node.push(22);
+	 node.append(200);
+	 node.insertAfter( node.head.next , 12);
+	 printlist(node.head);
+	 
+	 
+ }
+
+}
