@@ -1,0 +1,77 @@
+package com;
+// add two number 
+// First list is 7 5 9 4 6 
+//Second list is 8 4 
+//Resultant list is 7 6 0 3 0 
+ class Nod {
+	 
+    int data;
+    Nod next;
+
+    Nod(int d) {
+        data = d;
+        next = null;
+    }
+public static class LinkedList {
+
+	static Nod head;
+	LinkedList() { head = null; }
+	  void push(int new_data)
+	    {
+	        Nod new_node = new Nod(new_data);
+	        new_node.next = head;
+	        head = new_node;
+	    }
+	  
+	  void printList()
+	    {
+	        Nod n = head;
+	        while (n != null) {
+	            System.out.print(n.data + " ");
+	            n = n.next;
+	        }
+	        System.out.println();
+	    }
+	  public static void main(String[] args)
+	    {
+	        LinkedList first = new LinkedList();
+	        LinkedList second = new LinkedList();
+	        first.push(6);
+	        first.push(4);
+	        first.push(9);
+	        first.push(5);
+	        first.push(7);
+	 
+	        second.push(4);
+	        second.push(8);
+	 
+	        LinkedList ans = addTwoLists(first, second);
+	 
+	        System.out.print("Sum is : ");
+	        ans.printList();
+	    }
+	  
+	  static LinkedList addTwoLists(LinkedList first,
+              LinkedList second)
+	  {
+	        int num1 = 0,  
+	        		= 0;
+	        while (first.head != null) {
+	            num1 = num1 * 10 + first.head.data;
+	            first.head = first.head.next;
+	        }
+	        while (second.head != null) {
+	            num2 = num2 * 10 + second.head.data;
+	            second.head = second.head.next;
+	        }
+	        int num3 = num1 + num2;
+	        LinkedList temp = new LinkedList();
+	        while (num3 != 0) {
+	            int last = num3 % 10;
+	            temp.push(last);
+	            num3 = num3 / 10;
+	        }
+	        return temp;
+		  }
+	  }
+}
